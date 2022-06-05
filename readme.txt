@@ -1,6 +1,6 @@
-1. cmd
-2. mysite
-3. python manage.py runserver
-4. copy url
-5. paste in browser
+1. open cmd > mysite folder
+2. python manage.py runserver
+3. copy url
+4. paste in browser
 
+i am currently working on a few bugs
