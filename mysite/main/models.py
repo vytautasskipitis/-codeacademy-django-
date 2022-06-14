@@ -6,7 +6,7 @@ class ToDoList(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="todolist", null=True)
     name = models.CharField(max_length=200)
 
-    # old try (delete it after test)
+    # old try
     from django.conf import settings
     #user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
@@ -21,6 +21,8 @@ class Item(models.Model):
 
     def __str__(self):
         return self.text
+
+
 
 
 

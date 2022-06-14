@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import ToDoList, Item
 from .forms import CreateNewList
-# Create your views here.
+from django.shortcuts import redirect, render
+
 
 def index(response, id):
     ls = ToDoList.objects.get(id=id)
@@ -45,15 +46,34 @@ def create(response):
             t.save()
             response.user.todolist.add(t)
 
-        return HttpResponseRedirect("/%i" %t.id)
+        return HttpResponseRedirect("/%i" % t.id)
     else:
         form = CreateNewList()
 
-    return render(response, "main/create.html", {"form":form})
+    return render(response, "main/create.html", {"form": form})
+
 
 def view(response):
 
     return render(response, "main/view.html", {})
+
+
+def edit(request, n):
+    pass
+
+
+def delete(request, n):
+    t = ToDoList(name=n)
+    if request.method == 'POST':
+        t.delete()
+
+
+    #return render(request, "main/view.html", {})
+    return HttpResponseRedirect("/%i" % t.id)
+
+
+
+
 
 
 
