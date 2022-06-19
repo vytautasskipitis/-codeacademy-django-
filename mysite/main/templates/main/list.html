@@ -3,7 +3,7 @@
 
 {% block content %}
     <h1>{{ls.name}}</h1>
-    <form method="post" action="#">
+    <form method="post" action="#" enctype="multipart/form-data">
         {% csrf_token %}
         {% for item in ls.item_set.all %}
         <div class="input-group mb-3">
@@ -25,6 +25,13 @@
                 <button type="submit", name="newItem", value="newItem", class="btn btn-success">Add Text</button>
             </div>
             <input type="text", name="new">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button type="submit", name="newPicture", value="newPicture", class="btn btn-success">Add Picture</button>
+            </div>
+            <input type="file", name="newPicture">
         </div>
 
         <button type="submit", name="save", value="save", class="btn btn-success">Save</button>

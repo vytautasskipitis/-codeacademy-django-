@@ -29,7 +29,7 @@ def index(response, id):
                 else:
                     print("invalid")
 
-        return render(response, "main/list.html", {"ls":ls})
+        return render(response, "main/list.html", {"ls": ls})
     return render(response, "main/view.html", {})
 
 
@@ -68,8 +68,25 @@ def create(response):
 
 @login_required
 def view(response):
-
     return render(response, "main/view.html", {})
+
+
+# broken part !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+@login_required
+def delete(request, n):
+    t = ToDoList(name=n)
+    if request.method == 'POST':
+        t.delete()
+    # return render(request, "main/view.html", {})
+    return HttpResponseRedirect("/%i" % t.id)
+
+
+@login_required
+def delete(request, id):
+    project = ToDoList.objects.get(id=id)
+    if request.method == 'POST':
+        project.delete()
+    return render(request, "main/view.html", {})
 
 
 @login_required
@@ -77,21 +94,6 @@ def edit(request, n):
     pass
 
 
-# def delete(request, n):
-#     t = ToDoList(name=n)
-#     if request.method == 'POST':
-#         t.delete()
-#     #return render(request, "main/view.html", {})
-#     return HttpResponseRedirect("/%i" % t.id)
-
-
-# def delete(request, id):
-#     project = ToDoList.objects.get(id=id)
-#     if request.method == 'POST':
-#         project.delete()
-#     return render(request, "main/view.html", {})
-
-
-
-
-
+@login_required
+def upload_picture():
+    pass
