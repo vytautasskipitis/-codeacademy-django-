@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends "main/base_login.html" %}
 {% block title %}View List{% endblock %}
 
 {% block content %}
@@ -30,8 +30,8 @@
         <button type="submit", name="save", value="save", class="btn btn-success">Save</button>
 
         <button type="submit", name="edit", value="edit", class="btn btn-success">Edit</button>
-        <button type="submit", name="delete", value="delete", class="btn btn-success">Delete selected fields</button>
         <button type="submit", name="delete", value="delete", class="btn btn-success">Delete the entire list</button>
+
     </form>
 {% endblock %}
 

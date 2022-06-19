@@ -16,3 +16,19 @@ def register(response):
     return render(response, "register/register.html", { "form": form })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
