@@ -9,6 +9,6 @@ urlpatterns = [
   path("home_login/", views.home_login, name="home_login"),
   path("create/", views.create, name="create"),
   path("view/", views.view, name="view"),
-  path("base_login/", views.view, name="base_login"),
+  path("delete/<int:id>", views.delete, name="delete"),
 ]
 

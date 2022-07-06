@@ -10,6 +10,8 @@ from django.contrib.auth.decorators import login_required
 def index(response, id):
     ls = ToDoList.objects.get(id=id)
 
+    print(ls.id)
+
     if ls in response.user.todolist.all():
         if response.method == "POST":
             if response.POST.get("save"):
@@ -71,21 +73,10 @@ def view(response):
     return render(response, "main/view.html", {})
 
 
-# broken part !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-@login_required
-def delete(request, n):
-    t = ToDoList(name=n)
-    if request.method == 'POST':
-        t.delete()
-    # return render(request, "main/view.html", {})
-    return HttpResponseRedirect("/%i" % t.id)
-
-
 @login_required
 def delete(request, id):
     project = ToDoList.objects.get(id=id)
-    if request.method == 'POST':
-        project.delete()
+    project.delete()
     return render(request, "main/view.html", {})
 
 
